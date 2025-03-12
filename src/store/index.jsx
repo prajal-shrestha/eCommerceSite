@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
-import fetchDataReducer from "./reducers/FetchDataReducer";
-import watchFetchData from "./sagas/FetchDataSaga";
+import watchFetchData from "./sagas/watchProductSaga";
 import { configureStore } from "@reduxjs/toolkit";
+import productReducer from "./reducers/productReducer";
 
 // Combine reducers
 const rootReducer = combineReducers({
-  data: fetchDataReducer,
+  products: productReducer,
 });
 
 // Create Saga middleware

@@ -1,13 +1,12 @@
 import React from "react";
-
 import Navbar from "../components/navbar/Navbar";
-import FetchDataContainer from "../containers/FetchDataContainer";
+import ProductList from "../containers/ProductList";
 
 const HomePage = () => {
   return (
     <>
       <Navbar />
-      <FetchDataContainer />
+      <ProductList />
     </>
   );
 };

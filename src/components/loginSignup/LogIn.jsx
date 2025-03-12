@@ -26,7 +26,7 @@ const LogIn = ({ onSwitchToSignup }) => {
     onSubmit,
   });
   return (
-    <>
+    <div className="flex justify-center items-center h-screen">
       <form
         onSubmit={handleSubmit}
         autoComplete="off"
@@ -106,7 +106,7 @@ const LogIn = ({ onSwitchToSignup }) => {
           </a>
         </p>
       </form>
-    </>
+    </div>
   );
 };
 

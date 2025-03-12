@@ -1,7 +1,9 @@
 import React from "react";
 import Logo from "../logo/Logo";
+import { useNavigate } from "react-router";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -45,6 +47,7 @@ const Navbar = () => {
             <button
               type="button"
               className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+              onClick={() => navigate("/userCredentials")}
             >
               <span className="sr-only">User Profile</span>
               <svg
