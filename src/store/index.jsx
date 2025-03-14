@@ -3,10 +3,12 @@ import createSagaMiddleware from "redux-saga";
 import watchFetchData from "./sagas/watchProductSaga";
 import { configureStore } from "@reduxjs/toolkit";
 import productReducer from "./reducers/productReducer";
+import cartReducer from "./reducers/cartReducer";
 
 // Combine reducers
 const rootReducer = combineReducers({
   products: productReducer,
+  cart: cartReducer,
 });
 
 // Create Saga middleware

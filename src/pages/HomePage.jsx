@@ -1,12 +1,14 @@
 import React from "react";
 import Navbar from "../components/navbar/Navbar";
 import ProductList from "../containers/ProductList";
+import Footer from "../components/footer/Footer";
+import Search from "../components/search/Search";
 
 const HomePage = () => {
   return (
     <>
-      <Navbar />
-      <ProductList />
+      <Search/>
+      <Footer />
     </>
   );
 };

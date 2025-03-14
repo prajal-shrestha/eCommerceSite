@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import FemaleGender from "./FemaleGender";
+import MaleGender from "./MaleGender";
 
 const GenderToggler = () => {
   const [isGender, setIsGender] = useState(true);

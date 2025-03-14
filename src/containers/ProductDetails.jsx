@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { fetchProductDetails } from "../store/actions/productActions";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const product = useSelector((state) => state.productDetails);
+  const product = useSelector((state) => state.products.productDetails);
+  // const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchProductDetails(id));
@@ -20,15 +21,15 @@ const ProductDetails = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
           <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
             <img
-              className="w-full dark:hidden"
-              src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"
+              className="w-full " //dark:hidden
+              src={product.image}
               alt=""
             />
-            <img
+            {/* <img
               className="w-full hidden dark:block"
               src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
               alt=""
-            />
+            /> */}
           </div>
 
           <div className="mt-6 sm:mt-8 lg:mt-0">
@@ -37,10 +38,11 @@ const ProductDetails = () => {
             </h1>
             <div className="mt-4 sm:items-center sm:gap-4 sm:flex">
               <p className="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white">
-                {product.price}
+                $ {product.price}
               </p>
-
-              <div className="flex items-center gap-2 mt-2 sm:mt-0">
+            </div>
+            <div className="mt-4">
+              <div className="flex items-center gap-2 sm:mt-0">
                 <div className="flex items-center gap-1">
                   <svg
                     className="w-4 h-4 text-yellow-300"
@@ -110,7 +112,7 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
+            {/* <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
               <a
                 href="#"
                 title=""
@@ -162,21 +164,38 @@ const ProductDetails = () => {
                 </svg>
                 Add to cart
               </a>
-            </div>
+            </div> */}
+
+            <button
+              type="button"
+              className="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              // onClick={navigate(`/cart/:${product.id}`, { state: { product } })}
+            >
+              <svg
+                className="w-6 h-6 text-white-300 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
+                />
+              </svg>
+
+              <p> Add To Cart</p>
+            </button>
 
             <hr className="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
 
             <p className="mb-6 text-gray-500 dark:text-gray-400">
-              Studio quality three mic array for crystal clear calls and voice
-              recordings. Six-speaker sound system for a remarkably robust and
-              high-quality audio experience. Up to 256GB of ultrafast SSD
-              storage.
-            </p>
-
-            <p className="text-gray-500 dark:text-gray-400">
-              Two Thunderbolt USB 4 ports and up to two USB 3 ports. Ultrafast
-              Wi-Fi 6 and Bluetooth 5.0 wireless. Color matched Magic Mouse with
-              Magic Keyboard or Magic Keyboard with Touch ID.
+              {product.description}
             </p>
           </div>
         </div>
